@@ -16,6 +16,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "form-data": "^4.0.0",
     "util": "^0.12.5"
   }
 }

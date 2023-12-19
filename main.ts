@@ -1,9 +1,13 @@
 import * as fs from 'fs';
 import * as EventEmitter from "events";
+const FormData = require('form-data');
 const {add, subtract} = require('./utilities')
 import touch from './utils/touch'
 import cat from './utils/cat'
 import { StringDecoder } from "string_decoder";
+// import performRequest from "./request-http";
+import { createReadStream, createWriteStream } from 'fs';
+
 
 console.log(add(1,2))
 console.log(subtract(9,5))
@@ -191,3 +195,31 @@ streamRead.on('data', chunk => {    // ghi từng đoạn data vào file
 });
 
 streamRead.pipe(streamWrite)
+
+// === Request - Response ===
+// performRequest(
+//   {
+//     host: 'localhost',
+//     path: 'todos1',
+//     method: 'GET',
+//   },
+// )
+//   .then(response => {
+//     console.log(response);
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+
+// === multipart/form-data ===
+const readStream = createReadStream('./Ngan-Ha25.jpg');
+const writeStream = createWriteStream('./file.txt');
+const form = new FormData();
+ 
+form.append('photo', readStream);
+form.append('firstName', 'Marcin');
+form.append('lastName', 'Wanago');
+ 
+console.log(form.getHeaders());
+ 
+form.pipe(writeStream);

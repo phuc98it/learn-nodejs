@@ -75,8 +75,20 @@ eventEmitter.removeListener('event', listener); // xóa event
     ** Lưu ý : Nếu xảy ra lỗi trong quá trình xử  lí, thì nội dung có thể  không tự động 'closed', do đó cần phải theo dõi và đóng 1 cách thủ công.
 
     ** Chung quy có thể  có nhiều cách viết để  thực hiện đọc ghi file trong Nodejs, thực chất là dùng callback, stream, buffer.
-        +) 1 số lib giúp biến thể  cách viết theo Promise hoặc async-await.
+        + 1 số lib giúp biến thể  cách viết theo Promise hoặc async-await.
 
+# Request - Response
+    - http.ClientRequest : 
+        + request function : là 1 instance của ClientRequest mà ClientRequest kế  thừa từ Stream.
+        => request có đầy đủ tính chất của 1 Stream, kết hợp với Buffer và Pipe.
+    - multipart/form-data : là trường hợp thường thấy áp dụng để  (http.ClientRequest) xử  lí chúng công việc.
+        + FormData hỗ  trợ chứa dạng key-value.
+        + multipart bắt nguồn từ MIME (Multipurpose Internet Mail Extensions) : là 1 chuẩn format email
+    -> type of Request có thể  combine (kết hợp) 1 hoặc nhiều kiểu dữ liệu (single body | separated by boundaries).
 
+    - headers: có thể  chứa 1 trong các kiểu sau.
+        + 'Content-Type': 'application/json'
+        + 'content-type': 'multipart/form-data, boundary=--------------------------<random_string>'
 
+    => multipart/form-data  : có thể  chứa các loại data khác nhau (như ảnh, buffer, string, number) khi thực hiện request tới server.
 
