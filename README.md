@@ -92,3 +92,6 @@ eventEmitter.removeListener('event', listener); // xóa event
 
     => multipart/form-data  : có thể  chứa các loại data khác nhau (như ảnh, buffer, string, number) khi thực hiện request tới server.
 
+    - http.Server : createServer function là 1 dạng EventEmitter và trả về  1 instance http.Server.
+        + createServer() chứa các tính chất của EventEmitter, Stream và nó sẽ đảm nhiệm công việc 'listen' mỗi lần request tới server.
+        +  
