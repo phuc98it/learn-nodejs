@@ -213,7 +213,7 @@ streamRead.pipe(streamWrite)
 
 // === multipart/form-data ===
 const readStream = createReadStream('./Ngan-Ha25.jpg');
-const writeStream = createWriteStream('./file.txt');
+const writeStream = createWriteStream('./file-test.txt');
 const form = new FormData();
  
 form.append('photo', readStream);

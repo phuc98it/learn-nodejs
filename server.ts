@@ -2,6 +2,10 @@ import * as fs from 'fs';
 import { createServer, IncomingMessage, ServerResponse } from 'http';
 import * as multiparty from 'multiparty';
 import { Stream } from 'stream';
+import * as os from 'os';
+ 
+const numberOfCores = os.cpus().length;
+console.log('numberOfCores : ', numberOfCores)
 // var multiparty = require('multiparty');
 
  
